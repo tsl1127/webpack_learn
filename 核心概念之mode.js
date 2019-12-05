@@ -1,0 +1,11 @@
+mode用来指定当前的构建环境 production development还是none
+设置mode可以使用webpack内置的函数，默认值为production
+
+mode的内置函数功能
+development    设置process.env.NODE_ENV的值为development，开启NamedChunksPlugin和NamedModulesPlugin
+
+production    设置process.env.NODE_ENV的值是production，开启FlagDependencyUsagePlugin、FlagIncludedChunksPlugin  ModuleConcatenationPlugin NoEmitOnErrorsPlugin OccurenceOrderPlugin SideEffectsFlagPlugin TerserPlugin
+
+
+none  不开启任何优化选项
+
