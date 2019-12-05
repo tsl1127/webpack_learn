@@ -34,16 +34,16 @@ module.exports = {
                 ]
             },
             {
-                test: /.(png|jpg|svg|gif)/,
-                use: "file-loader"
-                // use:[
-                //     {
-                //         loader: 'url-loader',
-                //         options: {
-                //             limit:10240
-                //         }
-                //     }
-                // ]
+                test: /.(png|jpg|svg|gif)$/,
+                // use: "file-loader"
+                use:[
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            limit:10240   //小于10K的大小的图片会自动base64处理
+                        }
+                    }
+                ]
             }
         ]
     }
