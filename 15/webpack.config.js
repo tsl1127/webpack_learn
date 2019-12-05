@@ -32,6 +32,18 @@ module.exports = {
                     'css-loader',
                     'less-loader'
                 ]
+            },
+            {
+                test: /.(png|jpg|svg|gif)/,
+                use: "file-loader"
+                // use:[
+                //     {
+                //         loader: 'url-loader',
+                //         options: {
+                //             limit:10240
+                //         }
+                //     }
+                // ]
             }
         ]
     }
