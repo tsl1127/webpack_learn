@@ -2,6 +2,8 @@
 
 const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
     entry:{
@@ -67,6 +69,38 @@ module.exports = {
     plugins:[
         new MiniCssExtractPlugin({   //不能与style-loader一起使用
             filename:'[name]_[contenthash:8].css'
+        }),
+        new OptimizeCssAssetsPlugin({
+            assetNameRegExp:/\.css$/g,
+            cssProcessor:require('cssnano')
+        }),
+        new HtmlWebpackPlugin({  //一个页面对应一个
+            template:path.join(__dirname,'src/search.html'),
+            filename:'search.html',  //打包出来的文件名称
+            chunks:['search'],  //指定生成的html使用哪个chunk
+            inject:true,  //打包出来的css、js会自动的注入到html里面
+            minify:{
+                html5:true,
+                collapseWhitespace:true,
+                preserveLineBreaks:false,
+                minifyCSS:true,
+                nimifyJS:true,
+                removeComments:false
+            }
+        }),
+        new HtmlWebpackPlugin({  //一个页面对应一个
+            template:path.join(__dirname,'src/index.html'),
+            filename:'index.html',  //打包出来的文件名称
+            chunks:['index'],  //指定生成的html使用哪个chunk
+            inject:true,  //打包出来的css、js会自动的注入到html里面
+            minify:{
+                html5:true,
+                collapseWhitespace:true,
+                preserveLineBreaks:false,
+                minifyCSS:true,
+                nimifyJS:true,
+                removeComments:false
+            }
         })
     ]
 }
