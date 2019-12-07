@@ -17,6 +17,7 @@ index_51727db.js
 
     css的文件指纹设置（首先把输出的css单独提取出来）
     设置MiniCssExtractPlugin 的filename，使用contenthash
+    //这个插件没法和style-loader一个使用   style-loader是把样式插入到head里，
 
     plugins:[
         new MiniCssExtractPlugin({

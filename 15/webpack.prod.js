@@ -1,6 +1,7 @@
 'use strict'
 
 const path = require('path')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
     entry:{
@@ -21,14 +22,16 @@ module.exports = {
             {
                 test: /.css$/,
                 use:[
-                    "style-loader",
+                    MiniCssExtractPlugin.loader,
+                    // "style-loader",
                     "css-loader"
                 ]
             },
             {
                 test: /.less$/,
                 use:[
-                    'style-loader',
+                    MiniCssExtractPlugin.loader,
+                    // 'style-loader',
                     'css-loader',
                     'less-loader'
                 ]
@@ -58,7 +61,12 @@ module.exports = {
                         }
                     }
                 ]
-            }
+            },
         ]
-    }
+    },
+    plugins:[
+        new MiniCssExtractPlugin({   //不能与style-loader一起使用
+            filename:'[name]_[contenthash:8].css'
+        })
+    ]
 }
