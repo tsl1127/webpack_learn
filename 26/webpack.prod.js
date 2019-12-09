@@ -2,6 +2,7 @@
 
 const glob = require('glob')
 const path = require('path')
+const webpack = require('webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -54,8 +55,8 @@ module.exports = {
         path: path.join(__dirname,'dist'),
         filename: '[name]_[chunkhash:8].js'
     },
-    mode:'production',
-    // mode:'none',
+    // mode:'production',
+    mode:'none',
     module:{
         rules:[
             {
@@ -148,6 +149,7 @@ module.exports = {
         //         },
         //     ]
         // })
+        new webpack.optimize.ModuleConcatenationPlugin() //因为mode为production时会默认引入会压缩，看不到，这里把mode改为非production，手动引入来看效果
     ].concat(htmlWebpackPlugins),
     // devtool:'eval'
     // devtool: 'source-map'
@@ -165,16 +167,16 @@ module.exports = {
     //         }
     //     }
     // }
-    optimization:{
-        splitChunks: {
-            minSize:0,  //只要有引用就打包到commons里,0代表引入的容量大小
-            cacheGroups:{
-                commons:{
-                    name:'commons',
-                    chunks:'all',
-                    minChunks:2  //要求最少引用的次数是2次才打包
-                }
-            }
-        }
-    }
+    // optimization:{
+    //     splitChunks: {
+    //         minSize:0,  //只要有引用就打包到commons里,0代表引入的容量大小
+    //         cacheGroups:{
+    //             commons:{
+    //                 name:'commons',
+    //                 chunks:'all',
+    //                 minChunks:2  //要求最少引用的次数是2次才打包
+    //             }
+    //         }
+    //     }
+    // }
 }
