@@ -4,6 +4,8 @@
 方法：使用html-webpack-externals-plugin
 
 
+
+
 利用SplitChunksPlugin 进行公共脚本分离
 
 webpack4内置的，替代CommonsChunkPlugin插件

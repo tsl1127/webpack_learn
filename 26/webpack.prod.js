@@ -26,7 +26,7 @@ const setMPA = ()=>{
             new HtmlWebpackPlugin({  //一个页面对应一个
                 template:path.join(__dirname,`src/${pageName}/index.html`),
                 filename:`${pageName}.html`,  //打包出来的文件名称
-                chunks:[pageName],  //指定生成的html使用哪个chunk
+                chunks:['vendors',pageName],  //指定生成的html使用哪个chunk
                 inject:true,  //打包出来的css、js会自动的注入到html里面
                 minify:{
                     html5:true,
@@ -133,22 +133,33 @@ module.exports = {
         }),
         
         new CleanWebpackPlugin(),
-        new HtmlWebpackExternalsPlugin({
-            externals:[
-                {
-                    module:'react',
-                    entry:'https://11.url.cn/now/lib/16.2.0/react.min.js',
-                    global:'React'
-                },
-                {
-                    module:'react-dom',
-                    entry:'https://11.url.cn/now/lib/16.2.0/react-dom.min.js',
-                    global:'ReactDOM'
-                },
-            ]
-        })
+        // new HtmlWebpackExternalsPlugin({
+        //     externals:[
+        //         {
+        //             module:'react',
+        //             entry:'https://11.url.cn/now/lib/16.2.0/react.min.js',
+        //             global:'React'
+        //         },
+        //         {
+        //             module:'react-dom',
+        //             entry:'https://11.url.cn/now/lib/16.2.0/react-dom.min.js',
+        //             global:'ReactDOM'
+        //         },
+        //     ]
+        // })
     ].concat(htmlWebpackPlugins),
     // devtool:'eval'
     // devtool: 'source-map'
     // devtool: 'inline-source-map'
+    optimization:{
+        splitChunks: {
+            cacheGroups:{
+                commons:{
+                    test:/(react|react-dom)/,
+                    name:'vendors',  //提取公共包之后的取名
+                    chunks:'all'
+                }
+            }
+        }
+    }
 }
