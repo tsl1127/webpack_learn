@@ -15,6 +15,8 @@ chunks参数说明：
     initial 同步引入的库进行分离
     all  所有引入的库进行分离（推荐）
 
+    打包后的公共部分，如果要引入，则也必须在HtmlWebpackPlugin的chunks里加入这个打包后的名称
+
 
 利用SplitChunksPlugin分离基础包
 test:匹配出需要分离的包

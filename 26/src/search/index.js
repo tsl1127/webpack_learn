@@ -4,6 +4,7 @@
 "use strict"
 import React from "react"
 import ReactDOM from "react-dom"
+import '../../common'
 import search from "./image/search.jpg"
 import './search.less'
 

@@ -151,13 +151,27 @@ module.exports = {
     // devtool:'eval'
     // devtool: 'source-map'
     // devtool: 'inline-source-map'
+
+
+    // optimization:{
+    //     splitChunks: {
+    //         cacheGroups:{
+    //             commons:{
+    //                 test:/(react|react-dom)/,
+    //                 name:'vendors',  //提取公共包之后的取名
+    //                 chunks:'all'
+    //             }
+    //         }
+    //     }
+    // }
     optimization:{
         splitChunks: {
+            minSize:0,  //只要有引用就打包到commons里,0代表引入的容量大小
             cacheGroups:{
                 commons:{
-                    test:/(react|react-dom)/,
-                    name:'vendors',  //提取公共包之后的取名
-                    chunks:'all'
+                    name:'commons',
+                    chunks:'all',
+                    minChunks:2  //要求最少引用的次数是2次才打包
                 }
             }
         }
