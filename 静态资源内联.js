@@ -8,6 +8,7 @@
 
 请求层面：减少http网络请求数
     小图片或字体内联（url-loader）
+    
 
 
     html和Js内联
