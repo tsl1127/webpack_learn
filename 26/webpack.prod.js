@@ -135,20 +135,20 @@ module.exports = {
         }),
         
         new CleanWebpackPlugin(),
-        // new HtmlWebpackExternalsPlugin({
-        //     externals:[
-        //         {
-        //             module:'react',
-        //             entry:'https://11.url.cn/now/lib/16.2.0/react.min.js',
-        //             global:'React'
-        //         },
-        //         {
-        //             module:'react-dom',
-        //             entry:'https://11.url.cn/now/lib/16.2.0/react-dom.min.js',
-        //             global:'ReactDOM'
-        //         },
-        //     ]
-        // })
+        new HtmlWebpackExternalsPlugin({
+            externals:[
+                {
+                    module:'react',
+                    entry:'https://11.url.cn/now/lib/16.2.0/react.min.js',
+                    global:'React'
+                },
+                {
+                    module:'react-dom',
+                    entry:'https://11.url.cn/now/lib/16.2.0/react-dom.min.js',
+                    global:'ReactDOM'
+                },
+            ]
+        }),
         new webpack.optimize.ModuleConcatenationPlugin() //因为mode为production时会默认引入会压缩，看不到，这里把mode改为非production，手动引入来看效果
     ].concat(htmlWebpackPlugins),
     // devtool:'eval'

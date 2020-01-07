@@ -6,27 +6,51 @@ import React from "react"
 import ReactDOM from "react-dom"
 // import '../../common'
 import search from "./image/search.jpg"
-import {a} from './tree-shaking'
+// import {a} from './tree-shaking'
 import './search.less'
 
-if (false) {
-    a()
-}
+// if (false) {
+//     a()
+// }
 
 class Search extends React.Component {
+
+    // constructor(props) {
+    //     super(props)
+    //     this.state = {
+    //         Text:null
+    //     }
+    // }
+
+    constructor() {
+        super(...arguments)
+        this.state = {
+            Text: null
+        }
+    }
+
+    //有条件的import就是动态引入，上面的没条件的就是动态引入
+    loadComponent () {
+        import('./text.js').then((Text) => {  //import后是个promise
+            this.setState({
+                Text: Text.default
+            })
+        })
+    }
+
     render () {
-        // debugger
-        // const funcA = a()
+        const { Text } = this.state
         return (
             <div className="search-text">
-                    <img src={search}></img>
-               {/* {funcA} search text搜索啊热更新</div> */}
-               {funcA} search text搜索啊热更新</div>
+                {Text ? <Text/> : null}
+                搜索文字内容xxx
+                    <img src={search} onClick={this.loadComponent.bind(this)}></img>
+            </div>
         )
     }
 }
 
 ReactDOM.render(
-    <Search/>,
+    <Search />,
     document.getElementById("root")
 )
