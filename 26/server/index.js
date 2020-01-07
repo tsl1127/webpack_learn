@@ -8,6 +8,7 @@ const express = require('express')
 const { renderToString } = require('react-dom/server')
 const SSR = require('../dist/search-server')
 const template = fs.readFileSync(path.join(__dirname, '../dist/search.html'), 'utf-8')
+const data = require('./data.json')
 
 const server = (port) => {
     const app = express()
@@ -26,7 +27,8 @@ server(process.env.PORT || 3000)
 
 
 const renderMarkup = (str) => {
-    return template.replace('<!--HTML_ZW-->', str)  //占位符替换
+    const dataStr = JSON.stringify(data)
+    return template.replace('<!--HTML_ZW-->', str).replace('<!--INITIAL_DATA-->', `<script>window.__initial_data=${dataStr}</script>`)  //占位符替换
 }
 
 //启server服务  node server/index.js
