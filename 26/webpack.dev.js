@@ -94,8 +94,11 @@ module.exports = {
     ].concat(htmlWebpackPlugins),
     devServer:{
         contentBase:'./dist',
-        hot:true
+        hot:true,
+        stats: 'errors-only'
     },
     // devtool:'source-map'
     devtool: 'cheap-source-map'  //只能看到行，看不到列
+
+
 }
