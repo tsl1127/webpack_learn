@@ -6,3 +6,16 @@ none 没有输出
 normal  标准输出
 verbose  全部输出
 
+
+
+如何优化命令行的构建日志
+使用friendly-errors-webpack-plugin 
+    success 成功标志
+    warning 构建警告标志
+    error 构建报错日志提示
+
+    stats设置为errors-only 
+   
+
+    @font-face引入字体
+    

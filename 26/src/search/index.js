@@ -6,7 +6,7 @@ import React from "react"
 import ReactDOM from "react-dom"
 import largeNumberTsl from 'large-number-tsl'
 // import '../../common'
-import search from "./image/search.jpg"
+import logo from "./image/logo.png"
 // import {a} from './tree-shaking'
 import './search.less'
 
@@ -47,8 +47,8 @@ class Search extends React.Component {
             <div className="search-text">
                 {Text ? <Text/> : null}
                 {addResult}
-                搜索文字内容xxx
-                    <img src={search} onClick={this.loadComponent.bind(this)}></img>
+                搜索文字内容xxxyy
+                    <img src={logo} onClick={this.loadComponent.bind(this)}></img>
             </div>
         )
     }

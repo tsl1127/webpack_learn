@@ -8,6 +8,7 @@ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const {CleanWebpackPlugin} = require('clean-webpack-plugin')  //注意版本的原因
 const HtmlWebpackExternalsPlugin = require('html-webpack-externals-plugin')
+const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 
 const setMPA = ()=>{
     const entry = {
@@ -55,8 +56,8 @@ module.exports = {
         path: path.join(__dirname,'dist'),
         filename: '[name]_[chunkhash:8].js'
     },
-    // mode:'production',
-    mode:'none',
+    mode:'production',
+    // mode:'none',
     module:{
         rules:[
             {
@@ -152,7 +153,8 @@ module.exports = {
                 },
             ]
         }),
-        new webpack.optimize.ModuleConcatenationPlugin() //因为mode为production时会默认引入会压缩，看不到，这里把mode改为非production，手动引入来看效果
+        // new webpack.optimize.ModuleConcatenationPlugin(), //因为mode为production时会默认引入会压缩，看不到，这里把mode改为非production，手动引入来看效果
+        new FriendlyErrorsWebpackPlugin()
     ].concat(htmlWebpackPlugins),
     // devtool:'eval'
     // devtool: 'source-map'
