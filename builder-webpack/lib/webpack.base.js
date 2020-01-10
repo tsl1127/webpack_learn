@@ -7,12 +7,15 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin'); // 注意版本�
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 
+const projectRoot = process.cwd() //获取当前进入的目录，当运行node test/smoke/index.js时，目录就会进入template里
+
+
 const setMPA = () => {
   const entry = {
 
   };
   const htmlWebpackPlugins = [];
-  const entryFiles = glob.sync(path.join(__dirname, './src/*/index.js'));
+  const entryFiles = glob.sync(path.join(projectRoot, './src/*/index.js'));
   Object.keys(entryFiles).map((index) => {
     const entryFile = entryFiles[index];
     const match = entryFile.match(/src\/(.*)\/index\.js/);
@@ -20,7 +23,7 @@ const setMPA = () => {
     entry[pageName] = entryFile;
     return htmlWebpackPlugins.push(
       new HtmlWebpackPlugin({ // 一个页面对应一个
-        template: path.join(__dirname, `src/${pageName}/index.html`),
+        template: path.join(projectRoot, `src/${pageName}/index.html`),
         filename: `${pageName}.html`, // 打包出来的文件名称
         chunks: ['vendors', pageName], // 指定生成的html使用哪个chunk
         inject: true, // 打包出来的css、js会自动的注入到html里面
@@ -45,7 +48,11 @@ const { entry, htmlWebpackPlugins } = setMPA(); // 多页面打包
 
 
 module.exports = {
-  entry,
+  entry: entry,
+  output: {
+    path: path.join(projectRoot, 'dist'),
+    filename: '[name]_[chunkhash:8].js'
+  },
   module: {
     rules: [
       {
@@ -123,10 +130,10 @@ module.exports = {
     }),
     new CleanWebpackPlugin(), // 目录清理
     new FriendlyErrorsWebpackPlugin(), // 错误日志优化
-    function doneErrorPlugin() {
+    function doneErrorPlugin () {
       this.hooks.done.tap('done', (stats) => {
         if (stats.compilation.errors && stats.compilation.errors.length && process.argv.indexOf('--watch') === -1) {
-                    console.log('build error'); // eslint-disable-line
+          console.log('build error'); // eslint-disable-line
           // 这里可以做些错误日志上报
           process.exit(1);
         }
