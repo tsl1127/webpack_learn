@@ -25,3 +25,9 @@ jasmine Jest
 
 4、执行测试命令
 
+测试覆盖率
+用istanbul这个库——最好是安装npm install nyc -D
+
+"test": "istanbul cover ./node_modules/mocha/bin/_mocha",//查看测试覆盖率时用
+
+"test": "./node_modules/.bin/_mocha", //单元测试时用
