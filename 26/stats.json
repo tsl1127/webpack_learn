@@ -1,0 +1,231 @@
+ DONE  Compiled successfully in 6009ms18:18:45
+
+{
+  "errors": [],
+  "warnings": [],
+  "modules": [
+    {
+      "id": 0,
+      "identifier": "external \"React\"",
+      "name": "external \"React\"",
+      "index": 4,
+      "index2": 3,
+      "size": 42,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        1
+      ],
+      "issuer": "D:\\webpack_learn\\26\\node_modules\\babel-loader\\lib\\index.js!D:\\webpack_learn\\26\\src\\search\\index.js",
+      "issuerId": null,
+      "issuerName": "./src/search/index.js",
+      "issuerPath": [
+        {
+          "id": null,
+          "identifier": "D:\\webpack_learn\\26\\node_modules\\babel-loader\\lib\\index.js!D:\\webpack_learn\\26\\src\\search\\index.js",
+          "name": "./src/search/index.js"
+        }
+      ],
+      "failed": false,
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "id": 1,
+      "identifier": "external \"ReactDOM\"",
+      "name": "external \"ReactDOM\"",
+      "index": 5,
+      "index2": 4,
+      "size": 42,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        1
+      ],
+      "issuer": "D:\\webpack_learn\\26\\node_modules\\babel-loader\\lib\\index.js!D:\\webpack_learn\\26\\src\\search\\index.js",
+      "issuerId": null,
+      "issuerName": "./src/search/index.js",
+      "issuerPath": [
+        {
+          "id": null,
+          "identifier": "D:\\webpack_learn\\26\\node_modules\\babel-loader\\lib\\index.js!D:\\webpack_learn\\26\\src\\search\\index.js",
+          "name": "./src/search/index.js"
+        }
+      ],
+      "failed": false,
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "id": 2,
+      "identifier": "D:\\webpack_learn\\26\\node_modules\\babel-loader\\lib\\index.js!D:\\webpack_learn\\26\\node_modules\\large-number-tsl\\index.js",
+      "name": "./node_modules/large-number-tsl/index.js",
+      "index": 6,
+      "index2": 6,
+      "size": 161,
+      "cacheable": true,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        1
+      ],
+      "issuer": "D:\\webpack_learn\\26\\node_modules\\babel-loader\\lib\\index.js!D:\\webpack_learn\\26\\src\\search\\index.js",
+      "issuerId": null,
+      "issuerName": "./src/search/index.js",
+      "issuerPath": [
+        {
+          "id": null,
+          "identifier": "D:\\webpack_learn\\26\\node_modules\\babel-loader\\lib\\index.js!D:\\webpack_learn\\26\\src\\search\\index.js",
+          "name": "./src/search/index.js"
+        }
+      ],
+      "failed": false,
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "id": 3,
+      "identifier": "D:\\webpack_learn\\26\\node_modules\\babel-loader\\lib\\index.js!D:\\webpack_learn\\26\\node_modules\\large-number-tsl\\dist\\large-number.js",
+      "name": "./node_modules/large-number-tsl/dist/large-number.js",
+      "index": 7,
+      "index2": 5,
+      "size": 6443,
+      "cacheable": true,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        1
+      ],
+      "issuer": "D:\\webpack_learn\\26\\node_modules\\babel-loader\\lib\\index.js!D:\\webpack_learn\\26\\node_modules\\large-number-tsl\\index.js",
+      "issuerId": 2,
+      "issuerName": "./node_modules/large-number-tsl/index.js",
+      "issuerPath": [
+        {
+          "id": null,
+          "identifier": "D:\\webpack_learn\\26\\node_modules\\babel-loader\\lib\\index.js!D:\\webpack_learn\\26\\src\\search\\index.js",
+          "name": "./src/search/index.js"
+        },
+        {
+          "id": 2,
+          "identifier": "D:\\webpack_learn\\26\\node_modules\\babel-loader\\lib\\index.js!D:\\webpack_learn\\26\\node_modules\\large-number-tsl\\index.js",
+          "name": "./node_modules/large-number-tsl/index.js"
+        }
+      ],
+      "failed": false,
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "id": 4,
+      "identifier": "D:\\webpack_learn\\26\\node_modules\\mini-css-extract-plugin\\dist\\loader.js!D:\\webpack_learn\\26\\node_modules\\css-loader\\dist\\cjs.js!D:\\webpack_learn\\26\\node_modules\\less-loader\\dist\\cjs.js!D:\\webpack_learn\\26\\node_modules\\postcss-loader\\src\\index.js??ref--6-3!D:\\webpack_learn\\26\\node_modules\\px2rem-loader\\index.js??ref--6-4!D:\\webpack_learn\\26\\src\\search\\search.less",
+      "name": "./src/search/search.less",
+      "index": 9,
+      "index2": 9,
+      "size": 39,
+      "cacheable": true,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        1
+      ],
+      "issuer": "D:\\webpack_learn\\26\\node_modules\\babel-loader\\lib\\index.js!D:\\webpack_learn\\26\\src\\search\\index.js",
+      "issuerId": null,
+      "issuerName": "./src/search/index.js",
+      "issuerPath": [
+        {
+          "id": null,
+          "identifier": "D:\\webpack_learn\\26\\node_modules\\babel-loader\\lib\\index.js!D:\\webpack_learn\\26\\src\\search\\index.js",
+          "name": "./src/search/index.js"
+        }
+      ],
+      "failed": false,
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "id": 5,
+      "identifier": "D:\\webpack_learn\\26\\node_modules\\babel-loader\\lib\\index.js!D:\\webpack_learn\\26\\src\\index\\index.js 2ffd02af9d9bd92bc47639921cddd1dc",
+      "name": "./src/index/index.js + 2 modules",
+      "index": 0,
+      "index2": 2,
+      "size": 204,
+      "cacheable": true,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        0
+      ],
+      "issuer": null,
+      "issuerId": null,
+      "issuerName": null,
+      "issuerPath": null,
+      "failed": false,
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "id": 6,
+      "identifier": "D:\\webpack_learn\\26\\node_modules\\babel-loader\\lib\\index.js!D:\\webpack_learn\\26\\src\\search\\index.js 1b3b4acb880178356e420ce5890536af",
+      "name": "./src/search/index.js + 1 modules",
+      "index": 3,
+      "index2": 10,
+      "size": 3931,
+      "cacheable": true,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        1
+      ],
+      "issuer": null,
+      "issuerId": null,
+      "issuerName": null,
+      "issuerPath": null,
+      "failed": false,
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "id": 7,
+      "identifier": "D:\\webpack_learn\\26\\node_modules\\babel-loader\\lib\\index.js!D:\\webpack_learn\\26\\src\\search\\text.js",
+      "name": "./src/search/text.js",
+      "index": 11,
+      "index2": 11,
+      "size": 125,
+      "cacheable": true,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        2
+      ],
+      "issuer": "D:\\webpack_learn\\26\\node_modules\\babel-loader\\lib\\index.js!D:\\webpack_learn\\26\\src\\search\\index.js",
+      "issuerId": null,
+      "issuerName": "./src/search/index.js",
+      "issuerPath": [
+        {
+          "id": null,
+          "identifier": "D:\\webpack_learn\\26\\node_modules\\babel-loader\\lib\\index.js!D:\\webpack_learn\\26\\src\\search\\index.js",
+          "name": "./src/search/index.js"
+        }
+      ],
+      "failed": false,
+      "errors": 0,
+      "warnings": 0
+    }
+  ],
+  "filteredModules": 1,
+  "logging": {
+    "webpack.buildChunkGraph.visitModules": {
+      "entries": [],
+      "filteredEntries": 5,
+      "debug": false
+    }
+  }
+}
