@@ -10,6 +10,8 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')  //注意版本�
 const HtmlWebpackExternalsPlugin = require('html-webpack-externals-plugin')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const SpeedMeasureWebpackPlugin = require('speed-measure-webpack-plugin')
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
+
 
 const smp = new SpeedMeasureWebpackPlugin()
 
@@ -142,20 +144,20 @@ module.exports = smp.wrap({
         }),
 
         new CleanWebpackPlugin(),
-        new HtmlWebpackExternalsPlugin({
-            externals: [
-                {
-                    module: 'react',
-                    entry: 'https://11.url.cn/now/lib/16.2.0/react.min.js',
-                    global: 'React'
-                },
-                {
-                    module: 'react-dom',
-                    entry: 'https://11.url.cn/now/lib/16.2.0/react-dom.min.js',
-                    global: 'ReactDOM'
-                },
-            ]
-        }),
+        // new HtmlWebpackExternalsPlugin({
+        //     externals: [
+        //         {
+        //             module: 'react',
+        //             entry: 'https://11.url.cn/now/lib/16.2.0/react.min.js',
+        //             global: 'React'
+        //         },
+        //         {
+        //             module: 'react-dom',
+        //             entry: 'https://11.url.cn/now/lib/16.2.0/react-dom.min.js',
+        //             global: 'ReactDOM'
+        //         },
+        //     ]
+        // }),
         // new webpack.optimize.ModuleConcatenationPlugin(), //因为mode为production时会默认引入会压缩，看不到，这里把mode改为非production，手动引入来看效果
         new FriendlyErrorsWebpackPlugin(),
         function () {
@@ -165,7 +167,8 @@ module.exports = smp.wrap({
                     process.exit(1)
                 }
             })
-        }
+        },
+        new BundleAnalyzerPlugin()
     ].concat(htmlWebpackPlugins),
     // devtool:'eval'
     // devtool: 'source-map'
