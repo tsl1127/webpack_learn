@@ -9,6 +9,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')  //注意版本的原因
 const HtmlWebpackExternalsPlugin = require('html-webpack-externals-plugin')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
+const SpeedMeasureWebpackPlugin = require('speed-measure-webpack-plugin')
+
+const smp = new SpeedMeasureWebpackPlugin()
 
 const setMPA = () => {
     const entry = {
@@ -50,7 +53,7 @@ const setMPA = () => {
 const { entry, htmlWebpackPlugins } = setMPA()
 // console.log(entry,'entry')
 
-module.exports = {
+module.exports = smp.wrap({
     entry: entry,
     output: {
         path: path.join(__dirname, 'dist'),
@@ -193,4 +196,4 @@ module.exports = {
     //     }
     // }
     stats: 'errors-only'
-}
+})

@@ -9,3 +9,10 @@ scripts:{
 方法二：在node.js中使用 
 
 
+48、速度分析 ：使用speed-measure-webpack-plugin 
+
+可以看到每次插件和loader的耗时
+
+速度分析插件作用
+    分析整个打包总耗时
+    每个插件和loader的耗时情况
