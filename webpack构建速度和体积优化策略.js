@@ -27,3 +27,15 @@ scripts:{
 可以分析哪些问题？
     依赖的第三方模块文件大小
     业务里面的组件代码大小
+
+
+    速度优化：
+        使用高版本的webpack和node.js 
+
+    使用webpack4优化原因
+    v8带来的优化（for of 替代forEach、Map和Set替代Object、includes替代indexOf）
+    默认使用更快的md4 hash算法
+    webpacks AST可以直接从loader传递给AST，减少解析时间
+    使用字符串方法替代正则表达式
+
+    

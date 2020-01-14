@@ -1,29 +1,15 @@
-// document.write("search page")
-
-
 "use strict"
-// import "babel-polyfill"
-import React from "react"
-import ReactDOM from "react-dom"
-import largeNumberTsl from 'large-number-tsl'
-// import '../../common'
-import logo from "./image/logo.png"
-// import {a} from './tree-shaking'
-import './search.less'
+// import React from "react"
+// import largeNumberTsl from 'large-number-tsl'
+// import search from "./image/search.jpg"
+// import './search.less'
 
-// if (false) {
-//     a()
-// }
+const React = require('react')
+const largeNumberTsl = require('large-number-tsl')
+const logo  = require("./image/logo.png")
+require("./search.less")
 
 class Search extends React.Component {
-
-    // constructor(props) {
-    //     super(props)
-    //     this.state = {
-    //         Text:null
-    //     }
-    // }
-
     constructor() {
         super(...arguments)
         this.state = {
@@ -43,19 +29,20 @@ class Search extends React.Component {
     render () {
         const { Text } = this.state
         const addResult = largeNumberTsl('999','1')
-        
         return (
             <div className="search-text">
                 {Text ? <Text/> : null}
                 {addResult}
-                搜索文字内容xxxyy
-                    <img src={logo} onClick={this.loadComponent.bind(this)}></img>
+                搜索文字内容xxx
+                    <img src={logo.default} onClick={this.loadComponent.bind(this)}></img>
             </div>
         )
     }
 }
 
-ReactDOM.render(
-    <Search />,
-    document.getElementById("root")
-)
+// ReactDOM.render(
+//     <Search />,
+//     document.getElementById("root")
+// )  //在服务端是不能识别的
+
+module.exports = <Search />
