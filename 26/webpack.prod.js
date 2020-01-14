@@ -55,9 +55,8 @@ const setMPA = () => {
 }
 
 const { entry, htmlWebpackPlugins } = setMPA()
-// console.log(entry,'entry')
 
-module.exports = smp.wrap({
+module.exports = {
     entry: entry,
     output: {
         path: path.join(__dirname, 'dist'),
@@ -171,7 +170,7 @@ module.exports = smp.wrap({
                 }
             })
         },
-        new BundleAnalyzerPlugin(),
+        // new BundleAnalyzerPlugin(),
         new Happypack({
             loaders:[
                 'babel-loader'
@@ -207,4 +206,4 @@ module.exports = smp.wrap({
     //     }
     // }
     // stats: 'errors-only'
-})
+}
