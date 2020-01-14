@@ -13,6 +13,7 @@ const HtmlWebpackExternalsPlugin = require('html-webpack-externals-plugin')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const SpeedMeasureWebpackPlugin = require('speed-measure-webpack-plugin')
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
+const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
 
 
 const smp = new SpeedMeasureWebpackPlugin()
@@ -183,9 +184,10 @@ module.exports = {
                 'babel-loader?cacheDirectory=true'
             ]
         }),
-        new webpack.DllReferencePlugin({
-            manifest: require('./build/library/library.json')
-        })
+        // new webpack.DllReferencePlugin({
+        //     manifest: require('./build/library/library.json')
+        // })
+        new HardSourceWebpackPlugin()
     ].concat(htmlWebpackPlugins),
     // devtool:'eval'
     // devtool: 'source-map'
