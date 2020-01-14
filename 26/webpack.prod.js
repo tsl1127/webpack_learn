@@ -1,6 +1,6 @@
 'use strict'
 
-
+const TerserPlugin = require('terser-webpack-plugin')
 const Happypack = require('happypack')
 const glob = require('glob')
 const path = require('path')
@@ -212,5 +212,12 @@ module.exports = {
     //         }
     //     }
     // }
-    // stats: 'errors-only'
+    // stats: 'errors-only',
+    optimization: {
+        minimizer: [
+            new TerserPlugin({
+                parallel: true
+            })
+        ]
+    }
 }
