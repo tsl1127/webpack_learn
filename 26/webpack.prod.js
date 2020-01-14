@@ -180,7 +180,7 @@ module.exports = {
         // new BundleAnalyzerPlugin(),
         new Happypack({
             loaders: [
-                'babel-loader'
+                'babel-loader?cacheDirectory=true'
             ]
         }),
         new webpack.DllReferencePlugin({
