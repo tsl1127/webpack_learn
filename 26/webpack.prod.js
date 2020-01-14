@@ -69,9 +69,16 @@ module.exports = {
             {
                 test: /.js$/,
                 use: [
-                    // 'babel-loader',
+                    {
+                        loader: 'thread-loader',
+                        options: {
+                            workers: 3
+                        }
+                    },
+                    'babel-loader',
                     // 'eslint-loader'
-                    'happypack/loader'
+                    // 'happypack/loader'
+
                 ]
             },
             {
@@ -171,11 +178,11 @@ module.exports = {
             })
         },
         // new BundleAnalyzerPlugin(),
-        new Happypack({
-            loaders:[
-                'babel-loader'
-            ]
-        })
+        // new Happypack({
+        //     loaders:[
+        //         'babel-loader'
+        //     ]
+        // })
     ].concat(htmlWebpackPlugins),
     // devtool:'eval'
     // devtool: 'source-map'
