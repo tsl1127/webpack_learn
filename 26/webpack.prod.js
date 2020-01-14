@@ -69,15 +69,15 @@ module.exports = {
             {
                 test: /.js$/,
                 use: [
-                    {
-                        loader: 'thread-loader',
-                        options: {
-                            workers: 3
-                        }
-                    },
-                    'babel-loader',
+                    // {
+                    //     loader: 'thread-loader',
+                    //     options: {
+                    //         workers: 3
+                    //     }
+                    // },
+                    // 'babel-loader',
                     // 'eslint-loader'
-                    // 'happypack/loader'
+                    'happypack/loader'
 
                 ]
             },
@@ -153,20 +153,20 @@ module.exports = {
         }),
 
         new CleanWebpackPlugin(),
-        new HtmlWebpackExternalsPlugin({
-            externals: [
-                {
-                    module: 'react',
-                    entry: 'https://11.url.cn/now/lib/16.2.0/react.min.js',
-                    global: 'React'
-                },
-                {
-                    module: 'react-dom',
-                    entry: 'https://11.url.cn/now/lib/16.2.0/react-dom.min.js',
-                    global: 'ReactDOM'
-                },
-            ]
-        }),
+        // new HtmlWebpackExternalsPlugin({
+        //     externals: [
+        //         {
+        //             module: 'react',
+        //             entry: 'https://11.url.cn/now/lib/16.2.0/react.min.js',
+        //             global: 'React'
+        //         },
+        //         {
+        //             module: 'react-dom',
+        //             entry: 'https://11.url.cn/now/lib/16.2.0/react-dom.min.js',
+        //             global: 'ReactDOM'
+        //         },
+        //     ]
+        // }),
         // new webpack.optimize.ModuleConcatenationPlugin(), //因为mode为production时会默认引入会压缩，看不到，这里把mode改为非production，手动引入来看效果
         new FriendlyErrorsWebpackPlugin(),
         function () {
@@ -178,11 +178,14 @@ module.exports = {
             })
         },
         // new BundleAnalyzerPlugin(),
-        // new Happypack({
-        //     loaders:[
-        //         'babel-loader'
-        //     ]
-        // })
+        new Happypack({
+            loaders: [
+                'babel-loader'
+            ]
+        }),
+        new webpack.DllReferencePlugin({
+            manifest: require('./build/library/library.json')
+        })
     ].concat(htmlWebpackPlugins),
     // devtool:'eval'
     // devtool: 'source-map'
