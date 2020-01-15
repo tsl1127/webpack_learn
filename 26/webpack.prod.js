@@ -14,9 +14,13 @@ const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const SpeedMeasureWebpackPlugin = require('speed-measure-webpack-plugin')
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
+const PurgecssPlugin = require('purgecss-webpack-plugin')
 
 
 const smp = new SpeedMeasureWebpackPlugin()
+const PATHS = {
+    src: path.join(__dirname, 'src')
+}
 
 const setMPA = () => {
     const entry = {
@@ -188,7 +192,10 @@ module.exports = {
         // new webpack.DllReferencePlugin({
         //     manifest: require('./build/library/library.json')
         // })
-        new HardSourceWebpackPlugin()
+        new HardSourceWebpackPlugin(),
+        new PurgecssPlugin({
+            paths: glob.sync(`${PATHS.src}/**/*`, { nodir: true })
+        })
     ].concat(htmlWebpackPlugins),
     // devtool:'eval'
     // devtool: 'source-map'
@@ -218,10 +225,10 @@ module.exports = {
     //         }
     //     }
     // }
-    resolve:{
+    resolve: {
         alias: {
-            'react': path.resolve(__dirname,'./node_modules/react/umd/react.production.min.js'),
-            'react-dom': path.resolve(__dirname,'./node_modules/react-dom/umd/react-dom.production.min.js')
+            'react': path.resolve(__dirname, './node_modules/react/umd/react.production.min.js'),
+            'react-dom': path.resolve(__dirname, './node_modules/react-dom/umd/react-dom.production.min.js')
         },
         extensions: ['.js'],
         mainFields: ['main']
