@@ -69,6 +69,7 @@ module.exports = {
         rules: [
             {
                 test: /.js$/,
+                include: path.resolve('src'),  //只解析src目录里的模块
                 use: [
                     // {
                     //     loader: 'thread-loader',
@@ -217,13 +218,21 @@ module.exports = {
     //         }
     //     }
     // }
-    // stats: 'errors-only',
-    optimization: {
-        minimizer: [
-            new TerserPlugin({
-                parallel: true,
-                cache: true
-            })
-        ]
+    resolve:{
+        alias: {
+            'react': path.resolve(__dirname,'./node_modules/react/umd/react.production.min.js'),
+            'react-dom': path.resolve(__dirname,'./node_modules/react-dom/umd/react-dom.production.min.js')
+        },
+        extensions: ['.js'],
+        mainFields: ['main']
     }
+    // stats: 'errors-only',
+    // optimization: {
+    //     minimizer: [
+    //         new TerserPlugin({
+    //             parallel: true,
+    //             cache: true
+    //         })
+    //     ]
+    // }
 }
