@@ -8,6 +8,7 @@ import ReactDOM from "react-dom"
 import largeNumberTsl from 'large-number-tsl'
 // import '../../common'
 import logo from "./image/logo.png"
+// import bgImage from "./image/bg.jpg"
 // import {a} from './tree-shaking'
 import './search.less'
 
@@ -42,12 +43,13 @@ class Search extends React.Component {
 
     render () {
         const { Text } = this.state
-        const addResult = largeNumberTsl('999','1')
-        
+        const addResult = largeNumberTsl('999', '1')
+
         return (
             <div className="search-text">
-                {Text ? <Text/> : null}
+                {Text ? <Text /> : null}
                 {addResult}
+                {/* <img src={bgImage}></img> */}
                 搜索文字内容xxxyy
                     <img src={logo} onClick={this.loadComponent.bind(this)}></img>
             </div>
